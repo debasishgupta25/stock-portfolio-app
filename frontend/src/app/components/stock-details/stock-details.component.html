@@ -1,0 +1,94 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentStock.id">
+    <h4>Stock</h4>
+    <div>
+      <label><strong>Name:</strong></label> {{ currentStock.name }}
+    </div>
+    <div>
+      <label><strong>Symbol:</strong></label> {{ currentStock.symbol }}
+    </div>
+    <div>
+      <label><strong>Quantity:</strong></label> {{ currentStock.quantity }}
+    </div>
+    <div>
+      <label><strong>Unit Price:</strong></label>
+      {{ currentStock.price }}
+    </div>
+    <div>
+      <label><strong>Total Value:</strong></label>
+      {{ totalValue }}
+    </div>
+    
+    <a class="badge badge-warning" (click)="navigateToEdit(currentStock.id);">
+      Edit
+    </a>
+  </div>
+
+  <div *ngIf="!currentStock">
+    <br />
+    <h4>Please click on a Stock...</h4>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentStock.id" class="edit-form">
+    <h4>Stock</h4>
+    <form>
+      <input type="hidden" name="id" value="{{currentStock.id}}" />
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="currentStock.name"
+          name="name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="symbol">Symbol</label>
+        <input
+          type="text"
+          class="form-control"
+          id="symbol"
+          required
+          [(ngModel)]="currentStock.symbol"
+          name="symbol"
+        />
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input
+          type="text"
+          class="form-control"
+          id="quantity"
+          required
+          [(ngModel)]="currentStock.quantity"
+          name="quantity"
+        />
+      </div>
+    </form>
+
+    <button class="badge badge-danger mr-2" (click)="deleteStock()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateStock()"
+    >
+      Update
+    </button>
+    &nbsp;
+    <button
+      type="button"
+      class="badge badge-light mr-2"
+      (click)="navigateToBack()"
+    >
+      Back
+    </button>
+  </div>
+</ng-template>
+<h4>{{ message }}</h4>

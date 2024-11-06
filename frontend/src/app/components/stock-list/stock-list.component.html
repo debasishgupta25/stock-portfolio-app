@@ -1,0 +1,25 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Stock List</h4>
+    <ul class="list-group">
+      <li class="list-group-item" *ngIf="stockList?.length == 0">No record found.</li>
+      <li
+        class="list-group-item"
+        *ngFor="let stockItem of stockList; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveStock(stockItem, i)"
+      >
+        {{ stockItem.name }} 
+      </li>
+    </ul>
+
+  </div>
+  <div class="col-md-6">
+    <app-stock-details
+      [viewMode]="true"
+      [totalValue]="totalValue"
+      [currentStock]="currentStock"
+      
+    ></app-stock-details>
+  </div>
+</div>
