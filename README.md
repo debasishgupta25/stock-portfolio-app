@@ -23,9 +23,6 @@ It cludes following operation:
 
 Technology: Java SpringBoot, Gradle
 
-Command to run test cases:
->npm run test
-
 Developed in Gradle Java SpringBoot
 Steps to start the server:
 Gradle clean,
