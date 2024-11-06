@@ -1,6 +1,7 @@
 # Stock Portfolio Management Application 
 
 ===Front-end===
+
 Technology: Angular 16, RestAPI, Node.js 19.4.0, Karma jasmine
 
 Command to run the app: 
