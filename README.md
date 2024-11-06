@@ -5,7 +5,8 @@
 Technology: Angular 16, RestAPI, Node.js 19.4.0, Karma jasmine
 
 Command to run the app: 
-> npm install 
+> npm install
+
 > npm run start
 
 Project URL: http://localhost:4200/stockportfolio
